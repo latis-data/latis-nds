@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dataset>
+  <metadata name="sstoi_indices" long_name="Sea Surface Temperature Index - Optimum Interpolation"/> 
+  <adapter class="latis.reader.tsml.ColumnarAdapter"
+           delimiter="\s+"
+           skip="1"
+           columns="0,1;2;4;6;8"
+           location="ftp://ftp.cpc.ncep.noaa.gov/wd52dg/data/indices/sstoi.indices" />
+           
+  <time type="text">
+    <metadata units="yyyy MM"/>
+  </time>
+  <real id="nino12"/>
+  <real id="nino3"/>
+  <real id="nino4"/>
+  <real id="nino34"/>
+
+</dataset>
+

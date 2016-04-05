@@ -1,0 +1,46 @@
+make docker file to build on jetty image
+
+#ENV JETTY_HOME "/usr/local/jetty"
+#ENV JETTY_BASE "/var/lib/jetty"
+#ENV TMPDIR "/tmp/jetty"
+
+./gradlew war
+docker build -t latis-nds .
+docker images
+
+docker run -d -p 80:8080 latis-nds
+http://192.168.99.100/latis-nds/
+
+docker ps
+docker stop <container>
+
+docker ps -a
+docker rm <container>
+docker rmi <image>
+
+#Publish to dockerhub
+docker tag latis-nds dlindhol/latis-nds
+docker login
+docker push dlindhol/latis-nds
+
+#fork ndslabs-specs, make one for latis, pull request
+https://github.com/nds-org/ndslabs-specs
+git clone git@github.com:dlindhol/ndslabs-specs.git
+
+#add to my ndslabs vm:
+https://github.com/nds-org/ndslabs/blob/master/docs/setup.md (already done so just attach)
+ssh tutorial@141.142.210.142
+k42kwa8T
+docker attach system-shell
+#make spec file 
+nano latis-nds.json
+ndslabsctl add service -f latis-nds.json
+  admin
+http://141.142.210.142:30000/#/home
+launch LaTiS
+http://141.142.210.142:30453/
+NOT working
+changed port in json spec to 8080
+http://141.142.210.142:30929/latis-nds/latis/sstoi_indices.txt
+http://141.142.210.142:30929/latis-nds/latis/sstoi_indices.txt?time,nino34&time%3E=2016&format_time(MMM%20yyy)
+

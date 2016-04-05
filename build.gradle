@@ -1,0 +1,14 @@
+apply plugin: 'scala'
+apply plugin: 'war'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile project(":latis")
+  testCompile 'junit:junit:4.+'	
+}
+
+
+task wrapper(type: Wrapper) { gradleVersion = '2.12' }

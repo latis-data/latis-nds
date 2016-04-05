@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dataset>
+  <metadata name="leap_seconds"/> 
+  <adapter class="latis.reader.tsml.ColumnarAdapter"
+           commentCharacter="#"
+           delimiter="\s+"
+           columns="0;1"
+           location="http://www.ietf.org/timezones/data/leap-seconds.list" />
+           
+  <time type="integer">
+    <metadata units="seconds since 1900-01-01"/>
+  </time>
+  <integer id="leap_seconds"/>
+
+</dataset>
+
